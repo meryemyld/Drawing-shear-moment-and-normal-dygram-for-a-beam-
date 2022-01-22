@@ -1,0 +1,109 @@
+import pandas as pd
+from matplotlib import pyplot as plt
+import numpy as np
+
+while True:
+    df = pd.read_excel('meryem_project.xlsx')
+    list1 = df['names'].tolist()
+    list2 = df['numbers'].tolist()
+    dict1 = dict(zip(list1, list2))
+    print(list1)
+
+    name = input('Please choose from the above list, for which one of student the calculation will be done. \n')
+    f = dict1[name]
+    b = 100
+    F2 = f % b
+    print('\nThe distributed load F2 is the last two digit of student number, F2=',F2)
+
+
+    from sympy import *
+    x = Symbol('x')
+    Fr = integrate(F2 * x ** 2, (x, 0, 5.2))        #total force of distributed load
+    x_moment = (integrate(F2 * x * x ** 2, (x, 0, 5.2))) / Fr   #taking moment to the pin
+    R2 = (120 * 1.3 + Fr * (x_moment + 1.3) - 50) / 11.35
+    R1 = 120 + Fr - R2
+
+
+    print('\nReaction Force R1=',R1)
+    print('\nReaction Force R2=',R2)
+    print('\nTotal force of distributed load=',Fr,'\n')
+
+
+    'N Dygram'
+    x5 = [0, 11.35]
+    y5 = [0, 0]
+    plt.plot(x5, y5)
+    plt.title('N Dygram')
+    plt.ylabel('N')
+    plt.xlabel('m')
+    plt.show()
+
+
+
+    "Shear Dygram"
+
+    # shear_function_V=((R1 - 120)-(F2*((x-1.3)**3)/3))
+    # x_shear = ((R1 - 120) * 3 / F2) ** (1 / 3)       'V=0,the shear force will be 0, there will be maximum moment which'
+
+    x1 = [0, 0, 1.3, 1.3]
+    y1 = [0, R1, R1, R1 - 120]
+    x2 = [0, 11.35]
+    y2 = [0, 0]
+    x3 = []
+    y3 = []
+    x4 = [6.5, 11.35, 11.35]
+    y4 = [R1 - 120 - Fr, R1 - 120 - Fr, R1 - 120 - Fr + R2]
+
+    for i in np.arange(1.3, 6.6, 0.1):
+        y_func = [((R1 - 120) - (F2 * ((i - 1.3) ** 3)) / 3)]
+        x3.append(i)
+        y3.append(y_func)
+
+    plt.plot(x1, y1, x2, y2, x3, y3, x4, y4)
+    plt.title('Shear Dygram')
+    plt.ylabel('N')
+    plt.xlabel('m')
+    plt.show()
+
+
+
+    "Moment Dygram"
+
+    # moment_function= (R1 * 1.3 + ((R1 - 120) * (x - 1.3) - (F2 * ((x - 1.3) ** 4)) / 12))
+
+    x6 = [0, 1.3]
+    y6 = [0, R1 * 1.3]
+    x7 = [0, 11.35]
+    y7 = [0, 0]
+    x8 = []
+    y8 = []
+    x9 = [6.5, 6.5]
+    y9 = [((R1 * 1.3 + ((R1 - 120) * (6.5 - 1.3) - (F2 * ((6.5 - 1.3) ** 4)) / 12))),
+          (R1 * 1.3 + ((R1 - 120) * (6.5 - 1.3) - (F2 * ((6.5 - 1.3) ** 4)) / 12)) - 50]
+    x10 = [6.5, 11.35]
+    y10 = [((R1 * 1.3 + ((R1 - 120) * (6.5 - 1.3) - (F2 * ((6.5 - 1.3) ** 4)) / 12)) - 50),
+           ((R1 * 1.3 + ((R1 - 120) * (6.5 - 1.3) - (F2 * ((6.5 - 1.3) ** 4)) / 12)) - 50) - R2 * 4.85]
+
+    for i in np.arange(1.3, 6.6, 0.1):
+        y_func = [R1 * 1.3 + ((R1 - 120) * (i - 1.3) - (F2 * ((i - 1.3) ** 4)) / 12)]
+        x8.append(i)
+        y8.append(y_func)
+
+    plt.plot(x6, y6, x7, y7, x8, y8, x9, y9, x10, y10)
+    plt.title('Moment Dygram')
+    plt.ylabel('Nm')
+    plt.xlabel('m')
+    plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
