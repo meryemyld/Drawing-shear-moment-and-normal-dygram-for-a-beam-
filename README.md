@@ -12,6 +12,6 @@ The program takes the school numbers of  10 students from an excel sheet (using 
 
 🌱Finally, diagrams will be as follows:
 
-![Normal Dygram](https://user-images.githubusercontent.com/97787178/150647554-bce142f0-1c43-46b8-9ded-e43f5e8a8336.png)
-![Shear Dygram](https://user-images.githubusercontent.com/97787178/150647586-d13dd937-6eea-47cc-a03c-3638a0ce1224.png)
-![Moment Dygram](https://user-images.githubusercontent.com/97787178/150647599-4444a586-abf5-4c5d-847c-8be6e14cf141.png)
+![Normal Diagram](https://user-images.githubusercontent.com/97787178/150648523-ebbeacb8-716a-4452-bec2-5b4052947767.png)
+![Shear Diagram](https://user-images.githubusercontent.com/97787178/150648553-5cb7477a-928b-4386-8e75-f76e02171ebe.png)
+![Moment Diagram](https://user-images.githubusercontent.com/97787178/150648543-135ef641-0f4e-41c9-af36-0b1b4a3ab893.png)
