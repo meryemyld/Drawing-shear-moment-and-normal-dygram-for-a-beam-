@@ -11,7 +11,6 @@ The program takes the school numbers of  10 students from an excel sheet (using 
 
 
 
-
 🌱Finally, diagrams will be as follows:
 
 ![Normal Dygram](https://user-images.githubusercontent.com/97787178/150647554-bce142f0-1c43-46b8-9ded-e43f5e8a8336.png)
