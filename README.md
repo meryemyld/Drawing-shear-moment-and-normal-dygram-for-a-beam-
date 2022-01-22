@@ -1,7 +1,7 @@
 # Drawing-shear-moment-and-normal-diagram-for-a-beam-
 The program takes the school numbers of  10 students from an excel sheet (using the last two digits of student number as a variable F2) and asks the user which one’s N-M-T diagram to draw.
 ![Question](https://user-images.githubusercontent.com/97787178/150646989-94882a5e-e617-4a18-8617-cfb2efe9e4dd.png)
-🌱 It takes these students' numbers. (You can change students' names and numbers from excel sheet as you wish, it will automatically calculate.)
+🌱 The program takes these students' numbers. (You can change students' names and numbers from excel sheet as you wish, it will be automatically calculated.)
 
 ![Excel](https://user-images.githubusercontent.com/97787178/150647508-e5495de5-48f3-44b1-96b9-b9051ea47961.png)
 
